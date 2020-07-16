@@ -17,6 +17,7 @@ class Field {
       if(elem.some(a => a === pathCharacter)) acc = [idx, elem.findIndex(a => a === pathCharacter)];
       return acc;
    }, []);
+    this._play = 1;
   }
   get field(){
     return this._field;
@@ -37,6 +38,15 @@ class Field {
   set curPos(position){
      this._curPos = position;
   }
+
+  get play(){
+    return this._play;
+  }
+
+  set play(play){
+    this._play = play;
+  }
+
   print(){
     this.field.forEach(elem => console.log(elem.reduce((acc,curr) => acc += curr )));
     console.log(this.direction);
@@ -67,8 +77,11 @@ class Field {
     this.print();
   }
   play(){
+    while(play){
     this.getDest();
     this.print();
+    }
+    console.log("Goodbye")
   }
 
 }
