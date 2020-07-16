@@ -17,7 +17,7 @@ class Field {
       if(elem.some(a => a === pathCharacter)) acc = [idx, elem.findIndex(a => a === pathCharacter)];
       return acc;
    }, []);
-    this._play = 1;
+    this._play = 0;
   }
   get field(){
     return this._field;
@@ -58,29 +58,47 @@ class Field {
   }
   convertDir(dir){
     if (dir === "w"){
-      return [1, 0];
+      return [-1, 0];
     } else if (dir === "a") {
       return [0, -1];
     } else if (dir === "s") {
-      return [-1, 0];
+      return [1, 0];
     } else if (dir === "d") {
       return [0, 1];
     } else {
       return [0, 0];
     }
   }
+  evalDest(){
+    if(this.curPos[0] < 0 || this.curPos[1] < 0 || this.curPos[0] >= this.field.length || this.curPos[1] >= this.field[0].length ){
+      this.play = 1;
+    } else if (this.field[this.curPos[0]][this.curPos[1]] === hole) {
+      this.play = 1;
+    } else if (this.field[this.curPos[0]][this.curPos[1]] === fieldCharacter) {
+      this.field[this.curPos[0]][this.curPos[1]]= pathCharacter;
+    } else if (this.field[this.curPos[0]][this.curPos[1]] === hat) {
+      this.play = 2;
+      this.field[this.curPos[0]][this.curPos[1]] = "W";
+    }
+  }
   getDest(){
     this.getWay();
     this.curPos = sumArr(this.curPos, this.direction) ;
+    this.evalDest();
   }
   init(){
     this.print();
   }
   playing(){
-    while(this.play){
+    while(this.play === 0){
     this.getDest();
     this.print();
     }
+    if( this.play === 1) {
+    console.log("Lose")
+   } else if( this.play === 2) {
+   console.log("Win")
+  }
     console.log("Goodbye")
   }
 
