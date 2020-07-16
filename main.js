@@ -39,6 +39,8 @@ class Field {
   }
   print(){
     this.field.forEach(elem => console.log(elem.reduce((acc,curr) => acc += curr )));
+    console.log(this.direction);
+    console.log(this.curPos);
   }
   getWay(){
     const way = prompt('Which way[wasd]?');
@@ -82,8 +84,3 @@ const myField = new Field([
 
 myField.init();
 myField.play();
-console.log(myField.direction);
-console.log(myField.curPos);
-console.log(sumArr([0,1], [0, 2]) );
-myField.curPos=[0,7]
-console.log(myField.curPos);
