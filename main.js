@@ -28,6 +28,14 @@ class Field {
     const way = prompt('Which way?');
     this.direction = way;
   }
+  init(){
+    this.print();
+  }
+  play(){
+    this.getWay();
+    this.print();
+  }
+
 }
 
 
@@ -39,6 +47,5 @@ const myField = new Field([
   ['░', '^', '░'],
 ]);
 
-console.log(myField._field);
-console.log(myField._direction);
-myField.print()
+myField.init();
+myField.play();
