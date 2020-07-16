@@ -13,7 +13,7 @@ class Field {
     return this._field;
   }
   print(){
-    this.field.forEach(elem => console.log(elem));
+    this.field.forEach(elem => console.log(elem.toString()));
   }
 }
 
