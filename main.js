@@ -40,5 +40,5 @@ const myField = new Field([
 ]);
 
 console.log(myField._field);
-console.log(myField._curPos);
+console.log(myField._direction);
 myField.print()
