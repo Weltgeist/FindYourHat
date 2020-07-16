@@ -50,11 +50,31 @@ class Field {
     const field = [];
     const item = [hole, fieldCharacter];
     let select = '';
+    let x =0;
+    let y =0;
+    let go = 1;
     for (let i =0 ; i < h; i++){
       field[i] = [];
       for (let j =0 ; j < w; j++){      
         select = Math.random() <= percent?item[0]: item[1];
         field[i].push(select)
+      }
+    }
+    while(go){
+       x = Math.floor(Math.random()*h);
+       y = Math.floor(Math.random()*w);
+      if(field[x][y] === fieldCharacter){
+        field[x][y] = pathCharacter;
+        go =0;
+      }
+    }
+    go = 1;
+    while(go){
+       x = Math.floor(Math.random()*h);
+       y = Math.floor(Math.random()*w);
+      if(field[x][y] === fieldCharacter){
+        field[x][y] = hat;
+        go =0;
       }
     }
     return field;
@@ -125,6 +145,6 @@ const myField = new Field([
   ['░', '^', '░'],
 ]);
 
-console.log(Field.generateField(5,5, 0.3));
+console.log(Field.generateField(5,5, 0.2));
 myField.init();
 myField.playing();
