@@ -9,10 +9,10 @@ class Field {
   constructor(field) {
     this._field = field;
     this._direction = "";
-    this._curPos = field.reduce((acc, curr, idx) => {
-      if(curr.some(elem => elem === pathCharacter)) 
-      return idx;
-    });
+    this._curPos = field.reduce((acc, elem, idx) => {
+      if(elem.some(a => a === pathCharacter)) acc = [idx, elem.findIndex(a => a === pathCharacter)];
+      return acc;
+   }, []);
   }
   get field(){
     return this._field;
