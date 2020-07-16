@@ -9,7 +9,12 @@ class Field {
   constructor(field) {
     this._field = field;
   }
-  
+  get field(){
+    return this._field;
+  }
+  print(){
+    this.field.forEach(elem => console.log(elem));
+  }
 }
 
 const myField = new Field([
@@ -19,3 +24,5 @@ const myField = new Field([
 ]);
 
 console.log(myField._field);
+
+myField.print();
