@@ -46,7 +46,19 @@ class Field {
   set play(play){
     this._play = play;
   }
-
+  static generateField(h,w, percent){
+    const field = [];
+    const item = [hole, fieldCharacter];
+    let select = '';
+    for (let i =0 ; i < h; i++){
+      field[i] = [];
+      for (let j =0 ; j < w; j++){      
+        select = Math.random() <= percent?item[0]: item[1];
+        field[i].push(select)
+      }
+    }
+    return field;
+  }
   print(){
     this.field.forEach(elem => console.log(elem.reduce((acc,curr) => acc += curr )));
     console.log(this.direction);
@@ -113,5 +125,6 @@ const myField = new Field([
   ['░', '^', '░'],
 ]);
 
+console.log(Field.generateField(5,5, 0.3));
 myField.init();
 myField.playing();
