@@ -76,8 +76,8 @@ class Field {
   init(){
     this.print();
   }
-  play(){
-    while(play){
+  playing(){
+    while(this.play){
     this.getDest();
     this.print();
     }
@@ -96,4 +96,4 @@ const myField = new Field([
 ]);
 
 myField.init();
-myField.play();
+myField.playing();
