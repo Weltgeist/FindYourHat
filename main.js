@@ -136,10 +136,11 @@ class Field {
 
 }
 
+const h = prompt('field height?');
+const w = prompt('field width?');
+const p = prompt('field hole probability?');
 
-
-
-const myField = new Field(Field.generateField(5,5, 0.2));
+const myField = new Field(Field.generateField(h,w,p));
 
 myField.init();
 myField.playing();
