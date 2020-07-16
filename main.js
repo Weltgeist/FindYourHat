@@ -13,7 +13,7 @@ class Field {
     return this._field;
   }
   print(){
-    this.field.forEach(elem => console.log(elem.toString()));
+    this.field.forEach(elem => console.log(elem.reduce((acc,curr) => acc += curr )));
   }
 }
 
@@ -25,4 +25,4 @@ const myField = new Field([
 
 console.log(myField._field);
 
-myField.print();
+myField.print()
