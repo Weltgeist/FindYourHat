@@ -139,12 +139,7 @@ class Field {
 
 
 
-const myField = new Field([
-  ['*', '░', 'O'],
-  ['░', 'O', '░'],
-  ['░', '^', '░'],
-]);
+const myField = new Field(Field.generateField(5,5, 0.2));
 
-console.log(Field.generateField(5,5, 0.2));
 myField.init();
 myField.playing();
