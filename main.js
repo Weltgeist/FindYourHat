@@ -9,6 +9,10 @@ class Field {
   constructor(field) {
     this._field = field;
     this._direction = "";
+    this._curPos = field.reduce((acc, curr, idx) => {
+      if(curr.some(elem => elem === pathCharacter)) 
+      return idx;
+    });
   }
   get field(){
     return this._field;
@@ -20,6 +24,14 @@ class Field {
   
   set direction(direction){
      this._direction = direction;
+  }
+
+  get curPos(){
+    return this._curPos;
+  }
+  
+  set curPos(position){
+     this._curPos = position;
   }
   print(){
     this.field.forEach(elem => console.log(elem.reduce((acc,curr) => acc += curr )));
@@ -49,3 +61,5 @@ const myField = new Field([
 
 myField.init();
 myField.play();
+console.log(myField.direction);
+console.log(myField.curPos);
