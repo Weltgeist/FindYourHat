@@ -119,6 +119,7 @@ class Field {
     this.evalDest();
   }
   init(){
+    console.log('Goal: You are *. The goal is to reach hat ^');
     this.print();
   }
   playing(){
@@ -135,7 +136,7 @@ class Field {
   }
 
 }
-
+console.log('Instruction: Input a number for height, width >0 and a number for probability between 0-1. A interactive field will appear with randomly attributed obstacle.');
 const h = prompt('field height(>0)?');
 const w = prompt('field width(>0)?');
 const p = prompt('field hole probability(0-1)?');
